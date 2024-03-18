@@ -1,19 +1,46 @@
+from openai import OpenAI
+import json
 
-
-
-from openai import OpenAI;
 client = OpenAI()
 
-completion = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+response = client.chat.completions.create(
+    model="gpt-4",
     messages=[
         {
-            "role": "system", 
-            "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."}
-    ]
+            "role" : "user",
+            "content" : "what can u help me?"
+        }
+    ],
+    temperature=0.7
 )
 
-print(completion.choices[0].message.content)
+print(json.dumps(json.loads(response.model_dump_json()), indent=4))
+
+# {
+#     "id": "chatcmpl-93kZOWeKTvv7Da8MYmtVsin05LDAu",
+#     "choices": [
+#         {
+#             "finish_reason": "stop",
+#             "index": 0,
+#             "logprobs": null,
+#             "message": {
+#                 "content": "Arrr, me hearties, listen up ye scallywags! Asynchronous programming be like havin' a crew of pirates workin' on different tasks at the same time. Each pirate be doin' their own job, but they be communicatin' with the captain through messages in bottles. This way, the ship can be sailin' smoothly without all the pirates waitin' around for one task to be finished before movin' on to the next. So, me mateys, asynchronous programming be all about multitaskin' and keepin' the ship runnin' smoothly on the high seas of code! Arrr!",
+#                 "role": "assistant",
+#                 "function_call": null,
+#                 "tool_calls": null
+#             }
+#         }
+#     ],
+#     "created": 1710681026,
+#     "model": "gpt-3.5-turbo-0125",
+#     "object": "chat.completion",
+#     "system_fingerprint": "fp_4f2ebda25a",
+#     "usage": {
+#         "completion_tokens": 131,
+#         "prompt_tokens": 21,
+#         "total_tokens": 152
+#     }
+# }
 
 # this is result
 # Oh, wanderer in the realm of code,

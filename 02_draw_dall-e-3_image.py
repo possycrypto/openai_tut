@@ -38,3 +38,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# RateLimitError: Error code: 429 - 
+# {'error': 
+#     {'code': 'rate_limit_exceeded', 
+#      'message': 'Rate limit exceeded for images per minute in organization org-n9vhm5QAo7lYDhrPUvfDfGsU. Limit: 0/1min. Current: 1/1min. Please visit https://platform.openai.com/docs/guides/rate-limits to learn how to increase your rate limit.', 
+#      'param': None, 'type': 'requests'}}
